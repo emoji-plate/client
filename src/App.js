@@ -1,11 +1,21 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
-// animations
-import MoveInAnimation from "./animations/MoveIn";
+// components
+import Header, { FONT_SIZES } from "./components/Header";
 
 // svgs
 import MainLogo from "./assets/MainLogo";
 import PlateIllustration from "./assets/PlateIllustration";
+
+const MoveInAnimation = keyframes`
+  from {
+    transform: translate(-50%, -100%);
+  }
+  
+  to {
+    transform: translate(-50%, 0%);
+  }
+`;
 
 const AppStyle = styled.div`
   .plate-svg-container {
@@ -31,6 +41,10 @@ function App() {
       <span className="mainlogo-svg-container">
         <MainLogo />
       </span>
+
+      <Header fontSize={FONT_SIZES.large}>
+        Hello
+      </Header>
     </AppStyle>
   );
 }
