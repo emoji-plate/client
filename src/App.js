@@ -1,7 +1,8 @@
 import styled, { keyframes } from "styled-components";
 
 // components
-import Header, { FONT_SIZES } from "./components/Header";
+import { FONT_SIZES } from "./constants";
+import Header from "./styles/Header";
 
 // svgs
 import MainLogo from "./assets/MainLogo";

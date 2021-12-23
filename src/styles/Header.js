@@ -1,13 +1,5 @@
 import styled, { css } from "styled-components";
 
-export const FONT_SIZES = {
-    large: "50px",
-    midLarge: "38px",
-    medium: "30px",
-    midSmall: "24px",
-    small: "20px"
-};
-
 const HeaderDefault = css`
   font-size: ${(p) => p.fontSize};
   color: #686123;
