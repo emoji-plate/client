@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import styled from "styled-components";
+
+// animations
+import MoveInAnimation from "./animations/MoveIn";
+
+// svgs
+import MainLogo from "./assets/MainLogo";
+import PlateIllustration from "./assets/PlateIllustration";
+
+const AppStyle = styled.div`
+  .plate-svg-container {
+    position: absolute;
+    top: 10%; left: 10%;
+  }
+
+  .mainlogo-svg-container {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    animation: ${MoveInAnimation} 2s;
+  }
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppStyle>
+      <span className="plate-svg-container">
+        <PlateIllustration />
+      </span>
+      <span className="mainlogo-svg-container">
+        <MainLogo />
+      </span>
+    </AppStyle>
   );
 }
 
