@@ -11,7 +11,7 @@ const PlateIllustration = () => {
       <path
         d="M256.5 75.5C256.5 130.728 223.228 218 168 218C112.772 218 0 146.228 0 91C0 35.7715 3.27153 0.5 58.5 0.5C113.728 0.5 256.5 20.2715 256.5 75.5Z"
         fill="#DEDBBD"
-        fill-opacity="0.48"
+        fillOpacity="0.48"
       />
       <g filter="url(#filter0_d_1_22)">
         <circle cx="128.5" cy="83.5" r="64.5" fill="white" />
@@ -27,7 +27,7 @@ const PlateIllustration = () => {
           filterUnits="userSpaceOnUse"
           colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"

@@ -17,7 +17,7 @@ const HeaderSecondary = css`
 
 const Header = styled.header`
     font-weight: 700;
-    ${(p) => p.primary === true ? HeaderPrimary : p.secondary ? HeaderSecondary : HeaderDefault}
+    ${(p) => p.primary === true ? HeaderPrimary : p.secondary === true ? HeaderSecondary : HeaderDefault}
 `;
 
 export default Header;

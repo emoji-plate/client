@@ -2,7 +2,7 @@ import React from "react";
 
 const MainLogo = () => {
   return (
-    <svg width="206" height="278" viewBox="0 0 206 278" fill="none">
+    <svg viewBox="0 0 206 278" fill="none">
       <rect
         width="6"
         height="277"
