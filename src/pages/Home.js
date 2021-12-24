@@ -40,14 +40,10 @@ const AppStyle = styled.div`
   }
 
   .mainlogo-svg-container {
-    position: absolute;
-    top: 0%;
-    left: 50%;
     animation: ${MoveInAnimation} 1s;
-    z-index: 5;
 
     svg {
-        height: calc(100% - 200px);
+        height: calc(100% - 100px);
         width: calc(45%);
         transition: .3s;
     }
@@ -79,7 +75,7 @@ const AppStyle = styled.div`
   }
 `;
 
-function App() {
+function Main() {
   const [overlayOpen, setOverlayOpen] = useState(false);
   const [emojis] = useState(emojiDB);
 
@@ -105,6 +101,13 @@ function App() {
 
   return (
     <AppStyle>
+      {/**
+       * <span className="mainlogo-svg-container">
+        <MainLogo style={{
+          height: "30vh",
+        }} />
+      </span>
+       */}
       <main className="main-container">
         <Header
           className="main-header"
@@ -140,9 +143,17 @@ function App() {
           </Button>
         </Overlay>
       </main>
-      <Discover />
     </AppStyle>
   );
 }
 
-export default App;
+function Home() {
+  return (
+    <div>
+      <Main />
+      <Discover />
+    </div>
+  );
+}
+
+export default Home;

@@ -19,12 +19,14 @@ const SideNavigationBar = styled.nav`
 `;
 
 const SideNavigationSelector = styled.span`
-    height: 60px;
-    width: 90%;
-    border-radius: 20px;
-    &:hover {
-        background: ;
-    }
+  width: 90%;
+  padding: 5px 10px;
+  border-radius: 10px;
+  text-align: center;
+  transition: .2s;
+  &:hover {
+    background: #dfdbb9;
+  }
 `;
 
 const Documentation = (props) => {

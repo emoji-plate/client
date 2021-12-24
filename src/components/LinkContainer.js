@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import Link from "../styles/Link";
 
 const LinkContainerStyle = styled.div`
   display: flex;
@@ -13,9 +13,9 @@ const LinkContainerStyle = styled.div`
 const LinkContainer = () => {
   return (
     <LinkContainerStyle>
-      <Link to="/documentation">Documentation</Link>
-      <Link to="/documentation/api">API</Link>
-      <Link to="/documentation/changelog">v1.0.0</Link>
+      <Link about="_blank" href="https://github.com/haneenmahd/emoji-plate#readme">Documentation</Link>
+      <Link about="_blank" href="https://github.com/haneenmahd/emoji-plate#api">API</Link>
+      <Link about="_blank" href="https://github.com/haneenmahd/emoji-plate#release">v1.0.0</Link>
     </LinkContainerStyle>
   );
 };
