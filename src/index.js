@@ -12,8 +12,6 @@ import Home from './pages/Home';
 import Discover from './pages/Discover';
 import Documentation from './pages/Documentation';
 
-import PlateIllustration from "./assets/PlateIllustration";
-
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
@@ -35,15 +33,7 @@ ReactDOM.render(
 function App() {
   return (
     <div>
-      <span
-        style={{
-          position: "absolute",
-          top: "2%",
-          zIndex: "0",
-        }}
-      >
-        <PlateIllustration />
-      </span>
+      
 
       <Outlet />
     </div>

@@ -9,7 +9,10 @@ import LinkContainer from "../components/LinkContainer";
 import Button from "../styles/Button";
 import Overlay from "../styles/Overlay";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Discover from "../components/DiscoverGlimpse";
+
+import PlateIllustration from "../assets/PlateIllustration";
 
 // json import
 import emojiDB from "../data/db.json";
@@ -101,13 +104,6 @@ function Main() {
 
   return (
     <AppStyle>
-      {/**
-       * <span className="mainlogo-svg-container">
-        <MainLogo style={{
-          height: "30vh",
-        }} />
-      </span>
-       */}
       <main className="main-container">
         <Header
           className="main-header"
@@ -124,7 +120,9 @@ function Main() {
           getMeEmojiHandler={handleGetMeEmojiClick}
         />
         <LinkContainer />
-        <Button>Discover Emojis ⚉</Button>
+        <Button>
+          <Link to="/discover">Discover Emojis ⚉</Link>
+        </Button>
         <Overlay onClose={() => setOverlayOpen(false)} visible={overlayOpen}>
           <h1
             style={{
@@ -150,6 +148,15 @@ function Main() {
 function Home() {
   return (
     <div>
+      <span
+        style={{
+          position: "absolute",
+          top: "1%",
+          zIndex: "1",
+        }}
+      >
+        <PlateIllustration />
+      </span>
       <Main />
       <Discover />
     </div>

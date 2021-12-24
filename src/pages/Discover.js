@@ -15,11 +15,10 @@ const DiscoverStyle = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  margin-top: 10%;
-
+  margin-top: 4%;
   padding: 20px 15px;
   padding-bottom: 50px;
-  margin: -100px 0;
+  z-index: 100;
 
   header {
     padding: 20px;
@@ -39,6 +38,7 @@ const EmojiCard = styled.div`
   width: 150px;
   border-radius: 20px;
   padding: 12px 10px;
+  margin: 2%;
   box-shadow: 4px 8px 20px 0 #68612350;
   background: #ffffff50;
   border: 1px solid #686123;
@@ -47,12 +47,17 @@ const EmojiCard = styled.div`
   align-items: center;
   flex-direction: column;
   justify-content: space-around;
-  margin-top: 10%;
 
   h1 {
     color: #3f3a15;
     font-size: 400%;
     margin: 0;
+  }
+
+  @media screen and (max-width: 600px) {
+    height: 130px;
+    width: 130px;
+    margin: 2% 0;
   }
 `;
 

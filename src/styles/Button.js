@@ -48,6 +48,10 @@ const Button = styled.button`
   margin: 0;
   transition: .2s;
   -webkit-tap-highlight-color: transparent;
+  
+  a {
+    text-decoration: none;
+  }
 
   @media screen and (max-width: 600px) {
     font-size: 100%;

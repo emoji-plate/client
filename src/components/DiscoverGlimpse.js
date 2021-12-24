@@ -23,6 +23,12 @@ const DiscoverStyle = styled.div`
   header {
     padding: 20px;
   }
+
+  @media screen and (max-width: 600px) {
+    header {
+      font-size 250%;
+    }
+  }
 `;
 
 const EmojisGrid = styled.div`
@@ -36,6 +42,7 @@ const EmojisGrid = styled.div`
 const EmojiCard = styled.div`
   height: 150px;
   width: 150px;
+  margin: 2% 0;
   border-radius: 20px;
   padding: 12px 10px;
   box-shadow: 4px 8px 20px 0 #68612350;
@@ -46,17 +53,21 @@ const EmojiCard = styled.div`
   align-items: center;
   flex-direction: column;
   justify-content: space-around;
-  margin-top: 10%;
 
   h1 {
     color: #3f3a15;
     font-size: 400%;
     margin: 0;
   }
+
+  @media screen and (max-width: 600px) {
+    height: 130px;
+    width: 130px;
+  }
 `;
 
 function DiscoverGlimpse() {
-  const [emojis] = useState(emojiDB.slice(0, 21));
+  const [emojis] = useState(emojiDB.slice(0, 14));
 
   return (
     <DiscoverStyle>
