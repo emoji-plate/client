@@ -8,6 +8,9 @@ import {
 } from "react-router-dom";
 import './index.css';
 
+// footer component
+import Footer from './components/Footer';
+
 import Home from './pages/Home';
 import Discover from './pages/Discover';
 import Documentation from './pages/Documentation';
@@ -34,6 +37,7 @@ function App() {
   return (
     <div>
       <Outlet />
+      <Footer />
     </div>
   );
 }
