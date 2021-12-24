@@ -21,6 +21,10 @@ a {
   margin: 0px 18px;
 }
 
+button {
+  user-select: none;
+}
+
 p {
   color: #686123;
 }

@@ -43,6 +43,12 @@ const OverlayCloseButton = styled.button`
   background: #686123;
   border-radius: 100px;
   cursor: pointer;
+  user-select: none;
+  transition: 0.3s;
+
+  &:active {
+    background: #686123aa;
+  }
 `;
 
 const OverlayContent = styled.div`
@@ -58,7 +64,7 @@ const OverlayContent = styled.div`
 const Overlay = (props) => {
     return (
       <OverlayStyle visible={props.visible}>
-        <OverlayCloseButton onClick={props.onClose}>X</OverlayCloseButton>
+        <OverlayCloseButton onClick={props.onClose}>✕</OverlayCloseButton>
         <OverlayContent>{props.children}</OverlayContent>
       </OverlayStyle>
     );
