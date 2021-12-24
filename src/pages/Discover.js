@@ -8,6 +8,7 @@ import Header from "../styles/Header";
 import emojiDB from "../data/db.json";
 import { useState } from "react";
 import Button from "../styles/Button";
+import Overlay from "../styles/Overlay";
 import { Link } from "react-router-dom";
 
 const DiscoverStyle = styled.div`
@@ -86,10 +87,43 @@ const EmojiCard = styled.div`
   }
 `;
 
+const OverlayDisplayer = (props) => {
+  return (
+    <Overlay onClose={props.onClose} visible={props.visible}>
+      <h1
+        style={{
+          fontSize: "700%",
+          fontWeight: "bold",
+          color: "#A9A68E",
+          textAlign: "center",
+          margin: "0",
+        }}
+      >
+        {props.emoji.icon}
+      </h1>
+      <p>{props.emoji.name}</p>
+      <Button onClick={props.handleEmojiCopy}>
+        {props.isCopied ? <b>Copied</b> : "Copy"}
+      </Button>
+    </Overlay>
+  );
+}
+
 function Discover() {
   const [emojis] = useState(emojiDB);
+  const [overlayOpen, setOverlayOpen] = useState(false);
+  const [activeEmoji, setActiveEmoji] = useState("");
+  const [isCopied, setCopied] = useState(false);
   const [isSearching, setSearching] = useState(false);
   const [searchedEmoji, setEmojis] = useState([]);
+
+  const handleEmojiCopy = () => {
+    setCopied(true);
+
+    setTimeout(() => {
+      setCopied(false);
+    }, 1000);
+  };
 
   const searchHandler = (e) => {
     let output = [];
@@ -101,7 +135,7 @@ function Discover() {
       setSearching(false);
     }
     
-    emojis.filter(emoji => {
+    emojis.forEach(emoji => {
       let pattern = new RegExp(value, "gi");
 
       if (pattern.test(emoji.name)) {
@@ -110,6 +144,11 @@ function Discover() {
     });
 
     setEmojis(output);
+  }
+
+  const cardClickHandler = (emoji) => {
+    setOverlayOpen(true);
+    setActiveEmoji(emoji);
   }
 
   return (
@@ -128,20 +167,30 @@ function Discover() {
         placeholder="Search for emoji"
         className="search-input"
         type="text"
-        onChange={(e) => searchHandler(e)} />
+        onChange={(e) => searchHandler(e)}
+      />
       <EmojisGrid>
-        {isSearching ? searchedEmoji.map((emoji, index) => (
-          <EmojiCard key={index}>
-            <h1>{emoji.icon}</h1>
-            <h4>{emoji.name}</h4>
-          </EmojiCard>
-        )) : emojis.map((emoji, index) => (
-          <EmojiCard key={index}>
-            <h1>{emoji.icon}</h1>
-            <h4>{emoji.name}</h4>
-          </EmojiCard>
-        ))}
+        {isSearching
+          ? searchedEmoji.map((emoji, index) => (
+              <EmojiCard onClick={() => cardClickHandler(emoji)} key={index}>
+                <h1>{emoji.icon}</h1>
+                <h4>{emoji.name}</h4>
+              </EmojiCard>
+            ))
+          : emojis.map((emoji, index) => (
+              <EmojiCard onClick={() => cardClickHandler(emoji)} key={index}>
+                <h1>{emoji.icon}</h1>
+                <h4>{emoji.name}</h4>
+              </EmojiCard>
+            ))}
       </EmojisGrid>
+      <OverlayDisplayer
+        visible={overlayOpen}
+        isCopied={isCopied}
+        emoji={activeEmoji}
+        handleEmojiCopy={handleEmojiCopy}
+        onClose={() => setOverlayOpen(false)}
+      />
     </DiscoverStyle>
   );
 }

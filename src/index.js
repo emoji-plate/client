@@ -33,8 +33,6 @@ ReactDOM.render(
 function App() {
   return (
     <div>
-      
-
       <Outlet />
     </div>
   );

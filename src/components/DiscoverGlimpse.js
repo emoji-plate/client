@@ -3,6 +3,9 @@ import styled from "styled-components";
 // components
 import { FONT_SIZES } from "../constants";
 import Header from "../styles/Header";
+import Button from "../styles/Button";
+import Overlay from "../styles/Overlay";
+import { Link } from "react-router-dom";
 
 // json import
 import emojiDB from "../data/db.json";
@@ -65,8 +68,46 @@ const EmojiCard = styled.div`
   }
 `;
 
+const OverlayDisplayer = (props) => {
+  return (
+    <Overlay onClose={props.onClose} visible={props.visible}>
+      <h1
+        style={{
+          fontSize: "700%",
+          fontWeight: "bold",
+          color: "#A9A68E",
+          textAlign: "center",
+          margin: "0",
+        }}
+      >
+        {props.emoji.icon}
+      </h1>
+      <p>{props.emoji.name}</p>
+      <Button onClick={props.handleEmojiCopy}>
+        {props.isCopied ? <b>Copied</b> : "Copy"}
+      </Button>
+    </Overlay>
+  );
+};
+
 function DiscoverGlimpse() {
-  const [emojis] = useState(emojiDB.slice(0, 14));
+  const [emojis] = useState(emojiDB.slice(0, 10));
+  const [overlayOpen, setOverlayOpen] = useState(false);
+  const [activeEmoji, setActiveEmoji] = useState("");
+  const [isCopied, setCopied] = useState(false);
+
+  const handleEmojiCopy = () => {
+    setCopied(true);
+
+    setTimeout(() => {
+      setCopied(false);
+    }, 1000);
+  };
+
+  const cardClickHandler = (emoji) => {
+    setOverlayOpen(true);
+    setActiveEmoji(emoji);
+  }
 
   return (
     <DiscoverStyle>
@@ -75,16 +116,26 @@ function DiscoverGlimpse() {
         primary={true}
         fontSize={FONT_SIZES.large}
       >
-        Discover your favourite emojis here😀!
+        Discover your favourite emojis here!
       </Header>
       <EmojisGrid>
         {emojis.map((emoji, index) => (
-          <EmojiCard key={index}>
+          <EmojiCard onClick={() => cardClickHandler(emoji)} key={index}>
             <h1>{emoji.icon}</h1>
             <h4>{emoji.name}</h4>
           </EmojiCard>
         ))}
       </EmojisGrid>
+      <OverlayDisplayer
+        visible={overlayOpen}
+        isCopied={isCopied}
+        emoji={activeEmoji}
+        handleEmojiCopy={handleEmojiCopy}
+        onClose={() => setOverlayOpen(false)}
+      />
+      <Button secondary>
+        <Link to="/discover">Find More ►</Link>
+      </Button>
     </DiscoverStyle>
   );
 }

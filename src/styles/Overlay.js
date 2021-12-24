@@ -5,9 +5,9 @@ import styled from "styled-components";
 import MoveIn from "../animations/MoveIn";
 
 const OverlayStyle = styled.div`
-  display: ${p => p.visible ? "block" : "none"};
-  position: absolute;
-  top: 16%;
+  display: ${p =>p.visible ? "block" : "none"};
+  position: fixed;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 400px;

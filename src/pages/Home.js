@@ -126,8 +126,7 @@ function Main() {
               color: "#A9A68E",
               textAlign: "center",
               margin: "0",
-            }}
-          >
+            }}>
             {randomEmoji.icon}
           </h1>
           <p>{randomEmoji.name}</p>
