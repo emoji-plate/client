@@ -5,7 +5,6 @@ import { FONT_SIZES } from "../constants";
 import Header from "../styles/Header";
 
 import ButtonContainer from "../components/ButtonContainer";
-import LinkContainer from "../components/LinkContainer";
 import Button from "../styles/Button";
 import Overlay from "../styles/Overlay";
 import { useState } from "react";
@@ -16,28 +15,6 @@ import PlateIllustration from "../assets/PlateIllustration";
 
 // json import
 import emojiDB from "../data/db.json";
-
-const Rotate = keyframes`
-  0% {
-    transform: rotate(0deg);
-  }
-  
-  25% {
-    transform: rotate(-25deg);
-  }
-
-  50% {
-    transform: rotate(25deg);
-  }
-
-  85% {
-    transform: rotate(75deg);
-  }
-
-  100% {
-    transform: rotate(0);
-  }
-`;
 
 const AppStyle = styled.div`
   min-height: 100vh;
