@@ -47,16 +47,26 @@ const Footer = () => {
     <FooterStyle>
       <div className="links">
         <h5>Links ↖︎</h5>
-        <Link>GitHub</Link>
-        <Link>Developer</Link>
-        <Link>Issues</Link>
-        <Link>Open a issue＋</Link>
-        <Link>Suggest an idea💡</Link>
-        <Link>Contributing</Link>
+        <Link href="https://github.com/haneenmahd/emoji-plate">GitHub</Link>
+        <Link href="https://github.com/haneenmahd">Developer</Link>
+        <Link href="https://github.com/haneenmahd/emoji-plate/issues">
+          Issues
+        </Link>
+        <Link href="https://github.com/haneenmahd/emoji-plate/issues/new">
+          Open a issue＋
+        </Link>
+        <Link href="https://github.com/haneenmahd/emoji-plate/pulls">
+          Suggest an idea💡
+        </Link>
+        <Link href="">Contributing</Link>
       </div>
       <div className="info">
         <h5>Info</h5>
-        <p>Emoji plate is a open-source project hosted on GitHub. It is a collection of emojis and symbols that your keyboard lacks at giving you.</p>
+        <p>
+          Emoji plate is a open-source project hosted on GitHub. It is a
+          collection of emojis and symbols that your keyboard lacks at giving
+          you.
+        </p>
       </div>
     </FooterStyle>
   );
