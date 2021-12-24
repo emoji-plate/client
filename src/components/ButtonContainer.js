@@ -18,6 +18,14 @@ const ButtonContainerStyle = styled.div`
   button {
     margin: 0 18px;
   }
+
+  @media screen and (max-width: 600px) {
+    width: 80vw;
+    
+    button {
+      margin: 0 8px;
+    }
+  }
 `;
 
 const ButtonContainer = (props) => {
