@@ -36,7 +36,9 @@ const OverlayCloseButton = styled.button`
   outline: none;
   font-size: 24px;
   font-weight: 700;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   background: #686123;
   border-radius: 100px;
