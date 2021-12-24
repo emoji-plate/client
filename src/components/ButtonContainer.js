@@ -20,10 +20,10 @@ const ButtonContainerStyle = styled.div`
   }
 `;
 
-const ButtonContainer = () => {
+const ButtonContainer = (props) => {
     return (
       <ButtonContainerStyle>
-        <Button>Get me an emoji 😀</Button>
+        <Button onClick={props.getMeEmojiHandler}>Get me an emoji 😀</Button>
         <Button secondary>GitHub</Button>
       </ButtonContainerStyle>
     );

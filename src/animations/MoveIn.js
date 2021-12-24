@@ -2,11 +2,11 @@ import { keyframes } from "styled-components";
 
 const MoveIn = keyframes`
     from {
-        transform: translateY(-100%);
+        top: 0%;
     }
 
     to {
-        transform: translateY(0%);
+        top: 50%;
     }
 `;
 

@@ -1,7 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
+// animation
+import MoveIn from "../animations/MoveIn";
+
 const OverlayStyle = styled.div`
+  display: ${p => p.visible ? "block" : "none"};
   position: absolute;
   top: 50%;
   left: 50%;
@@ -13,6 +17,7 @@ const OverlayStyle = styled.div`
   box-shadow: 8px 12px 8px rgba(0, 0, 0, 0.15),
     0px 4px 4px 1000px rgba(255, 252, 227, 0.81);
   border-radius: 20px;
+  animation: ${MoveIn} .5s;
   z-index: 100;
 
   @media screen and (max-width: 600px) {
@@ -31,6 +36,7 @@ const OverlayCloseButton = styled.button`
   outline: none;
   font-size: 24px;
   font-weight: 700;
+  text-align: center;
 
   background: #686123;
   border-radius: 100px;
@@ -41,13 +47,16 @@ const OverlayContent = styled.div`
     height: 100%;
     width: 100%;
     padding: 5px 10px;
-    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 `;
 
 const Overlay = (props) => {
     return (
-      <OverlayStyle>
-        <OverlayCloseButton>X</OverlayCloseButton>
+      <OverlayStyle visible={props.visible}>
+        <OverlayCloseButton onClick={props.onClose}>X</OverlayCloseButton>
         <OverlayContent>{props.children}</OverlayContent>
       </OverlayStyle>
     );

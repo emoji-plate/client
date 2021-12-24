@@ -11,6 +11,10 @@ import ButtonContainer from "../components/ButtonContainer";
 import LinkContainer from "../components/LinkContainer";
 import Button from "../styles/Button";
 import Overlay from "../styles/Overlay";
+import { useEffect, useState } from "react";
+
+// json import
+import emojiDB from "../data/db.json";
 
 const MoveInAnimation = keyframes`
   from {
@@ -45,12 +49,13 @@ const AppStyle = styled.div`
 
     svg {
         height: calc(100% - 200px);
-        width: calc(60%);
+        width: calc(45%);
         transition: .3s;
     }
   }
 
   .main-container {
+      margin-top: 50px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -60,6 +65,10 @@ const AppStyle = styled.div`
       text-align: center;
       margin-top: 30px;
       z-index: 4;
+
+      .main-header {
+          padding: 0 3%;
+      }
 
       .secondary-header {
           font-size: 160%;
@@ -73,6 +82,25 @@ const AppStyle = styled.div`
 `;
 
 function App() {
+  const [overlayOpen, setOverlayOpen] = useState(false);
+  const [emojis] = useState(emojiDB);
+
+  const [isCopied, setCopied] = useState(false);
+
+  let randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+
+  const handleGetMeEmojiClick = () => {
+    setOverlayOpen(true);
+  }
+
+  const handleEmojiCopy = () => {
+    setCopied(true);
+
+    setTimeout(() => {
+      setCopied(false);
+    }, 1000);
+  }
+
   return (
     <AppStyle>
       <span className="plate-svg-container">
@@ -87,16 +115,28 @@ function App() {
           primary={true}
           fontSize={FONT_SIZES.large}
         >
-          Best emojis in the town😀.
+          Best emojis in the town.
         </Header>
         <Header className="secondary-header" fontSize={FONT_SIZES.midLarge}>
           Get emojis that you don’t get from anywhere else from here.
         </Header>
-        <ButtonContainer />
+        <ButtonContainer getMeEmojiHandler={handleGetMeEmojiClick} />
         <LinkContainer />
         <Button>Discover Emojis ⚉</Button>
-        <Overlay>
-          <h1>Hello World</h1>
+        <Overlay onClose={() => setOverlayOpen(false)} visible={overlayOpen}>
+          <h1
+            style={{
+              fontSize: "700%",
+              fontWeight: "bold",
+              color: "#A9A68E",
+              textAlign: "center",
+              margin: "0"
+            }}
+          >
+            {randomEmoji.icon}
+          </h1>
+          <p>{randomEmoji.name}</p>
+          <Button onClick={handleEmojiCopy}>{isCopied ? <b>Copied</b> : "Copy"}</Button>
         </Overlay>
       </main>
     </AppStyle>
