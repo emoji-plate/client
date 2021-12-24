@@ -114,7 +114,7 @@ function Main() {
           githubLinkClick={openGitHubRepo}
           getMeEmojiHandler={handleGetMeEmojiClick}
         />
-        <LinkContainer />
+        {/**<LinkContainer /> */}
         <Button>
           <Link to="/discover">Discover Emojis ⚉</Link>
         </Button>
