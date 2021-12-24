@@ -37,7 +37,9 @@ const FooterStyle = styled.footer`
     }
     
     p {
+        font-size: 20px;
         margin: 10px 5px;
+        width: 40%;
     }
   }
 `;
