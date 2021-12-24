@@ -7,7 +7,10 @@ import Header from "../styles/Header";
 // svgs
 import MainLogo from "../assets/MainLogo";
 import PlateIllustration from "../assets/PlateIllustration";
+import ButtonContainer from "../components/ButtonContainer";
+import LinkContainer from "../components/LinkContainer";
 import Button from "../styles/Button";
+import Overlay from "../styles/Overlay";
 
 const MoveInAnimation = keyframes`
   from {
@@ -36,25 +39,31 @@ const AppStyle = styled.div`
   .mainlogo-svg-container {
     position: absolute;
     top: 0%;
+    left: 50%;
     animation: ${MoveInAnimation} 1s;
     z-index: 5;
 
     svg {
         height: calc(100% - 200px);
-        width: calc(65%);
+        width: calc(60%);
         transition: .3s;
     }
   }
 
   .main-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
       min-height: 100vh:
-      width: 100vw;
+      max-width: 100vw;
       text-align: center;
       margin-top: 30px;
       z-index: 4;
 
       .secondary-header {
           font-size: 160%;
+          padding: 0 3%;
       }
       
       button {
@@ -81,10 +90,14 @@ function App() {
           Best emojis in the town😀.
         </Header>
         <Header className="secondary-header" fontSize={FONT_SIZES.midLarge}>
-          Get emojis that you don’t get anywhere else from here.
+          Get emojis that you don’t get from anywhere else from here.
         </Header>
-        <Button>Get me an emoji 😀</Button>
-        <Button secondary>GitHub</Button>
+        <ButtonContainer />
+        <LinkContainer />
+        <Button>Discover Emojis ⚉</Button>
+        <Overlay>
+          <h1>Hello World</h1>
+        </Overlay>
       </main>
     </AppStyle>
   );

@@ -8,34 +8,20 @@ const ButtonPrimary = css`
   background: linear-gradient(180.52deg, #fffce3 0.45%, #e6db7f 300.35%);
   box-shadow: 4px 8px 8px rgba(56, 56, 56, 0.07);
   border-radius: 25px;
-
-  /* Inside Auto Layout */
-
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-  margin: 0px 20px;
 `;
 
 const ButtonSecondary = css`
-  min-width: 236px;
+  max-width: 100%;
   min-height: 67px;
   font-size: 24px;
 
   background: linear-gradient(180.52deg, #fffce3 0.45%, #ffffff 300.35%);
   box-shadow: 4px 8px 8px rgba(56, 56, 56, 0.07);
   border-radius: 25px;
-
-  /* Inside Auto Layout */
-
-  flex: none;
-  order: 1;
-  flex-grow: 0;
-  margin: 0px 20px;
 `;
 
 const ButtonDefault = css`
-  min-width: 236px;
+  max-width: 100%;
   min-height: 67px;
   font-size: 24px;
 
@@ -48,10 +34,17 @@ const Button = styled.button`
   border: none;
   outline: none;
   font-weight: 600;
+  padding: 10px 20px;
+  cursor: pointer;
   color: #686123;
+  margin: 0;
   -webkit-tap-highlight-color: transparent;
+
+  @media screen and (max-width: 600px) {
+    font-size: 100%;
+  }
   ${(p) =>
-    p.primary == true
+    p.primary === true
       ? ButtonPrimary
       : p.secondary === true
       ? ButtonSecondary
