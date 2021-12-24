@@ -17,7 +17,7 @@ const OverlayStyle = styled.div`
   box-shadow: 8px 12px 8px rgba(0, 0, 0, 0.15),
     0px 4px 4px 1000px rgba(255, 252, 227, 0.81);
   border-radius: 20px;
-  animation: ${MoveIn} .5s;
+  animation: ${MoveIn} ease-in-out .5s;
   z-index: 100;
 
   @media screen and (max-width: 600px) {

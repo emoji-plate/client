@@ -6,7 +6,9 @@ import Header from "../styles/Header";
 
 // json import
 import emojiDB from "../data/db.json";
-import { useState } from "react/cjs/react.development";
+import { useState } from "react";
+import Button from "../styles/Button";
+import { Link } from "react-router-dom";
 
 const DiscoverStyle = styled.div`
   min-height: 100vh;
@@ -22,6 +24,28 @@ const DiscoverStyle = styled.div`
 
   header {
     padding: 20px;
+  }
+
+  .search-input {
+    height: 40px;
+    width: 80vw;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background: #69612338;
+    padding: 5px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    transition: .3s;
+
+    ::placeholder {
+      color: #3f3a15;
+      font-weight: normal;
+    }
+
+    :focus {
+      box-shadow: 0 0 0 4px #686123;
+    }
   }
 `;
 
@@ -47,6 +71,7 @@ const EmojiCard = styled.div`
   align-items: center;
   flex-direction: column;
   justify-content: space-around;
+  cursor: pointer;
 
   h1 {
     color: #3f3a15;
@@ -63,9 +88,35 @@ const EmojiCard = styled.div`
 
 function Discover() {
   const [emojis] = useState(emojiDB);
+  const [isSearching, setSearching] = useState(false);
+  const [searchedEmoji, setEmojis] = useState([]);
+
+  const searchHandler = (e) => {
+    let output = [];
+    const value = String(e.target.value);
+
+    if (value !== "") {
+      setSearching(true);
+    } else {
+      setSearching(false);
+    }
+    
+    emojis.filter(emoji => {
+      let pattern = new RegExp(value, "gi");
+
+      if (pattern.test(emoji.name)) {
+        output.push(emoji);
+      }
+    });
+
+    setEmojis(output);
+  }
 
   return (
     <DiscoverStyle>
+      <Button secondary>
+        <Link to="/">☉ Get Back Home</Link>
+      </Button>
       <Header
         className="main-header"
         primary={true}
@@ -73,11 +124,21 @@ function Discover() {
       >
         Discover your favourite emojis here!
       </Header>
+      <input
+        placeholder="Search for emoji"
+        className="search-input"
+        type="text"
+        onChange={(e) => searchHandler(e)} />
       <EmojisGrid>
-        {emojis.map((emoji, index) => (
+        {isSearching ? searchedEmoji.map((emoji, index) => (
           <EmojiCard key={index}>
-                <h1>{emoji.icon}</h1>
-                <h4>{emoji.name}</h4>
+            <h1>{emoji.icon}</h1>
+            <h4>{emoji.name}</h4>
+          </EmojiCard>
+        )) : emojis.map((emoji, index) => (
+          <EmojiCard key={index}>
+            <h1>{emoji.icon}</h1>
+            <h4>{emoji.name}</h4>
           </EmojiCard>
         ))}
       </EmojisGrid>

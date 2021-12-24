@@ -17,13 +17,25 @@ import PlateIllustration from "../assets/PlateIllustration";
 // json import
 import emojiDB from "../data/db.json";
 
-const MoveInAnimation = keyframes`
-  from {
-    transform: translate(0%, -100%);
+const Rotate = keyframes`
+  0% {
+    transform: rotate(0deg);
   }
   
-  to {
-    transform: translate(0%, 0%);
+  25% {
+    transform: rotate(-25deg);
+  }
+
+  50% {
+    transform: rotate(25deg);
+  }
+
+  85% {
+    transform: rotate(75deg);
+  }
+
+  100% {
+    transform: rotate(0);
   }
 `;
 
@@ -34,23 +46,6 @@ const AppStyle = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-
-  .plate-svg-container {
-    position: absolute;
-    top: 10%;
-    left: 10%;
-    z-index: 1;
-  }
-
-  .mainlogo-svg-container {
-    animation: ${MoveInAnimation} 1s;
-
-    svg {
-        height: calc(100% - 100px);
-        width: calc(45%);
-        transition: .3s;
-    }
-  }
 
   .main-container {
       display: flex;
