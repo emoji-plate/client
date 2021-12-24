@@ -14,6 +14,10 @@ const OverlayStyle = styled.div`
     0px 4px 4px 1000px rgba(255, 252, 227, 0.81);
   border-radius: 20px;
   z-index: 100;
+
+  @media screen and (max-width: 600px) {
+    width: 90vw;
+  }
 `;
 
 const OverlayCloseButton = styled.button`
