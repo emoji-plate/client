@@ -9,17 +9,15 @@ import emojiDB from "../data/db.json";
 import { useState } from "react/cjs/react.development";
 
 const DiscoverStyle = styled.div`
-  min-height: 100vh;
+  min-height: 100%;
   max-width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  margin-top: 10%;
 
   padding: 20px 15px;
   padding-bottom: 50px;
-  margin: -100px 0;
 
   header {
     padding: 20px;
@@ -56,8 +54,8 @@ const EmojiCard = styled.div`
   }
 `;
 
-function Discover() {
-  const [emojis] = useState(emojiDB);
+function DiscoverGlimpse() {
+  const [emojis] = useState(emojiDB.slice(0, 21));
 
   return (
     <DiscoverStyle>
@@ -66,13 +64,13 @@ function Discover() {
         primary={true}
         fontSize={FONT_SIZES.large}
       >
-        Discover your favourite emojis here!
+        Discover your favourite emojis here😀!
       </Header>
       <EmojisGrid>
         {emojis.map((emoji, index) => (
           <EmojiCard key={index}>
-                <h1>{emoji.icon}</h1>
-                <h4>{emoji.name}</h4>
+            <h1>{emoji.icon}</h1>
+            <h4>{emoji.name}</h4>
           </EmojiCard>
         ))}
       </EmojisGrid>
@@ -80,4 +78,4 @@ function Discover() {
   );
 }
 
-export default Discover;
+export default DiscoverGlimpse;

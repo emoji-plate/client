@@ -6,7 +6,7 @@ const MoveIn = keyframes`
     }
 
     to {
-        top: 50%;
+        top: 16%;
     }
 `;
 

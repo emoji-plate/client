@@ -9,6 +9,7 @@ import {
 import './index.css';
 
 import Home from './pages/Home';
+import Discover from './pages/Discover';
 
 import PlateIllustration from "./assets/PlateIllustration";
 
@@ -18,6 +19,7 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<Home />} />
+          <Route path="/discover" element={<Discover />} />
         </Route>
       </Routes>
     </BrowserRouter>

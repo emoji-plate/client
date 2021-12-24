@@ -11,10 +11,10 @@ import LinkContainer from "../components/LinkContainer";
 import Button from "../styles/Button";
 import Overlay from "../styles/Overlay";
 import { useState } from "react";
+import Discover from "../components/DiscoverGlimpse";
 
 // json import
 import emojiDB from "../data/db.json";
-import Discover from "./Discover";
 
 const MoveInAnimation = keyframes`
   from {
