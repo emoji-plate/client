@@ -4,8 +4,6 @@ import styled, { keyframes } from "styled-components";
 import { FONT_SIZES } from "../constants";
 import Header from "../styles/Header";
 
-// svgs
-import MainLogo from "../assets/MainLogo";
 import ButtonContainer from "../components/ButtonContainer";
 import LinkContainer from "../components/LinkContainer";
 import Button from "../styles/Button";
@@ -108,9 +106,6 @@ function App() {
   return (
     <AppStyle>
       <main className="main-container">
-        <span className="mainlogo-svg-container">
-          <MainLogo />
-        </span>
         <Header
           className="main-header"
           primary={true}

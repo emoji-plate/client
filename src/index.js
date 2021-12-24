@@ -10,7 +10,9 @@ import './index.css';
 
 import Home from './pages/Home';
 import Discover from './pages/Discover';
+import Documentation from './pages/Documentation';
 
+import MainLogo from "./assets/MainLogo";
 import PlateIllustration from "./assets/PlateIllustration";
 
 ReactDOM.render(
@@ -20,6 +22,7 @@ ReactDOM.render(
         <Route path="/" element={<App />}>
           <Route index element={<Home />} />
           <Route path="/discover" element={<Discover />} />
+          <Route path="/documentation" element={<Documentation />} />
         </Route>
       </Routes>
     </BrowserRouter>
@@ -30,7 +33,18 @@ ReactDOM.render(
 function App() {
   return (
     <div>
-      <span className="plate-svg-container">
+      <span className="mainlogo-svg-container">
+        <MainLogo style={{
+          height: "30vh",
+        }} />
+      </span>
+      <span
+        style={{
+          position: "absolute",
+          top: "5%",
+          zIndex: "0",
+        }}
+      >
         <PlateIllustration />
       </span>
 

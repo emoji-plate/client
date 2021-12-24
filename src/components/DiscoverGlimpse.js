@@ -18,6 +18,7 @@ const DiscoverStyle = styled.div`
 
   padding: 20px 15px;
   padding-bottom: 50px;
+  margin-top: 10%;
 
   header {
     padding: 20px;

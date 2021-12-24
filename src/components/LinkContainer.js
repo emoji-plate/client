@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Link from "../styles/Link";
+import { Link } from "react-router-dom";
 
 const LinkContainerStyle = styled.div`
   display: flex;
@@ -13,9 +13,9 @@ const LinkContainerStyle = styled.div`
 const LinkContainer = () => {
   return (
     <LinkContainerStyle>
-      <Link>Documentation</Link>
-      <Link>API</Link>
-      <Link>v1.0.0</Link>
+      <Link to="/documentation">Documentation</Link>
+      <Link to="/documentation/api">API</Link>
+      <Link to="/documentation/changelog">v1.0.0</Link>
     </LinkContainerStyle>
   );
 };
