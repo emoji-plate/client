@@ -6,15 +6,15 @@ import Header from "../styles/Header";
 
 // svgs
 import MainLogo from "../assets/MainLogo";
-import PlateIllustration from "../assets/PlateIllustration";
 import ButtonContainer from "../components/ButtonContainer";
 import LinkContainer from "../components/LinkContainer";
 import Button from "../styles/Button";
 import Overlay from "../styles/Overlay";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 // json import
 import emojiDB from "../data/db.json";
+import Discover from "./Discover";
 
 const MoveInAnimation = keyframes`
   from {
@@ -28,6 +28,7 @@ const MoveInAnimation = keyframes`
 
 const AppStyle = styled.div`
   min-height: 100vh;
+  max-width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -55,13 +56,12 @@ const AppStyle = styled.div`
   }
 
   .main-container {
-      margin-top: 50px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: space-around;
-      min-height: 100vh:
-      max-width: 100vw;
+      height: 100%:
+      width: 100vw;
       text-align: center;
       margin-top: 30px;
       z-index: 4;
@@ -101,11 +101,12 @@ function App() {
     }, 1000);
   }
 
+  const openGitHubRepo = () => {
+    window.open("https://github.com/haneenmahd/emoji-plate");
+  }
+
   return (
     <AppStyle>
-      <span className="plate-svg-container">
-        <PlateIllustration />
-      </span>
       <main className="main-container">
         <span className="mainlogo-svg-container">
           <MainLogo />
@@ -120,7 +121,10 @@ function App() {
         <Header className="secondary-header" fontSize={FONT_SIZES.midLarge}>
           Get emojis that you don’t get from anywhere else from here.
         </Header>
-        <ButtonContainer getMeEmojiHandler={handleGetMeEmojiClick} />
+        <ButtonContainer
+          githubLinkClick={openGitHubRepo}
+          getMeEmojiHandler={handleGetMeEmojiClick}
+        />
         <LinkContainer />
         <Button>Discover Emojis ⚉</Button>
         <Overlay onClose={() => setOverlayOpen(false)} visible={overlayOpen}>
@@ -130,15 +134,18 @@ function App() {
               fontWeight: "bold",
               color: "#A9A68E",
               textAlign: "center",
-              margin: "0"
+              margin: "0",
             }}
           >
             {randomEmoji.icon}
           </h1>
           <p>{randomEmoji.name}</p>
-          <Button onClick={handleEmojiCopy}>{isCopied ? <b>Copied</b> : "Copy"}</Button>
+          <Button onClick={handleEmojiCopy}>
+            {isCopied ? <b>Copied</b> : "Copy"}
+          </Button>
         </Overlay>
       </main>
+      <Discover />
     </AppStyle>
   );
 }

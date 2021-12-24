@@ -24,7 +24,7 @@ const ButtonContainer = (props) => {
     return (
       <ButtonContainerStyle>
         <Button onClick={props.getMeEmojiHandler}>Get me an emoji 😀</Button>
-        <Button secondary>GitHub</Button>
+        <Button onClick={props.githubLinkClick} secondary>GitHub</Button>
       </ButtonContainerStyle>
     );
 }
