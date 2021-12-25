@@ -19,8 +19,5 @@
   "bugs": {
     "url": "https://github.com/haneenmahd/emoji-plate/issues"
   },
-  "homepage": "https://github.com/haneenmahd/emoji-plate#readme",
-  "dependencies": {
-    "typescript": "^4.5.4"
-  }
+  "homepage": "https://github.com/haneenmahd/emoji-plate#readme"
 }
