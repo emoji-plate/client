@@ -4,21 +4,21 @@
     sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 a {
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
   line-height: 24px;
-  text-decoration-line: noen;
-
+  text-decoration-line: none;
+  padding: 8px;
   color: #686123;
-
-  /* Inside Auto Layout */
-
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-  margin: 0px 18px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: .1s;
 }
 
 button {

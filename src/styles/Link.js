@@ -9,13 +9,6 @@ const LinkDefault = css`
   padding: 8px;
   color: #686123;
   border-radius: 25px;
-
-  /* Inside Auto Layout */
-
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-  margin: 0px 18px;
   cursor: pointer;
   transition: .1s;
 `;
@@ -23,10 +16,12 @@ const LinkDefault = css`
 const Link = styled.a`
   ${LinkDefault}
 
-  &:hover {
+  ${(p) =>
+    p.hover &&
+    `&:hover {
     background: #686123;
     color: #fff;
-  }
+  }`}
 `;
 
 export default Link;

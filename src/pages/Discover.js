@@ -6,10 +6,17 @@ import Header from "../styles/Header";
 
 // json import
 import emojiDB from "../data/db.json";
+
 import { useState } from "react";
 import Button from "../styles/Button";
 import Overlay from "../styles/Overlay";
 import { Link } from "react-router-dom";
+
+// util
+import copy from "../util/copy";
+
+// imgs
+import FigmaHelpImage from "../assets/png/figma-help.png";
 
 const DiscoverStyle = styled.div`
   min-height: 100vh;
@@ -25,6 +32,13 @@ const DiscoverStyle = styled.div`
 
   header {
     padding: 10px 20px;
+
+    .primary-header {
+      margin: 2px 0;
+      @media screen and (max-width: 600px) {
+        font-size: 250%;
+      }
+    }
   }
 
   .search-input {
@@ -37,7 +51,11 @@ const DiscoverStyle = styled.div`
     padding: 5px 20px;
     font-size: 20px;
     font-weight: bold;
-    transition: .3s;
+    transition: 0.3s;
+
+    @media screen and (max-width: 600px) {
+      width: 70vw;
+    }
 
     ::placeholder {
       color: #3f3a15;
@@ -47,6 +65,12 @@ const DiscoverStyle = styled.div`
     :focus {
       box-shadow: 0 0 0 4px #686123;
     }
+  }
+
+  .more-help {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 `;
 
@@ -117,7 +141,8 @@ function Discover() {
   const [isSearching, setSearching] = useState(false);
   const [searchedEmoji, setEmojis] = useState([]);
 
-  const handleEmojiCopy = () => {
+  const handleEmojiCopy = (string) => {
+    copy(string.icon);
     setCopied(true);
 
     setTimeout(() => {
@@ -157,11 +182,15 @@ function Discover() {
         <Link to="/">☉ Get Back Home</Link>
       </Button>
       <Header>
-        <Header primary={true} fontSize={FONT_SIZES.large}>
+        <Header
+          className="primary-header"
+          primary={true}
+          fontSize={FONT_SIZES.large}
+        >
           Discover your favourite emojis here!
         </Header>
         <Header fontSize={FONT_SIZES.midSmall}>
-          Find emojis from over {emojis.length} emojis.
+          Find emojis from over {emojiDB.length} emojis.
         </Header>
       </Header>
       <input
@@ -189,9 +218,16 @@ function Discover() {
         visible={overlayOpen}
         isCopied={isCopied}
         emoji={activeEmoji}
-        handleEmojiCopy={handleEmojiCopy}
+        handleEmojiCopy={() => handleEmojiCopy(activeEmoji)}
         onClose={() => setOverlayOpen(false)}
       />
+      <header className="more-help">
+        <p>
+          Get radial and linear gradient icons on Figma or Download them
+          <Link to="/download">here</Link>.
+        </p>
+        <img width="100%" src={FigmaHelpImage} alt="" />
+      </header>
     </DiscoverStyle>
   );
 }

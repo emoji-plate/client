@@ -9,8 +9,9 @@ import emojiDB from "../data/db.json";
 import { useState } from "react";
 import Button from "../styles/Button";
 import Overlay from "../styles/Overlay";
+import LinkDefault from "../styles/Link";
 import { Link } from "react-router-dom";
-import ColorfulText from "../styles/ColorfulText";
+import copy from "../util/copy";
 
 const DiscoverGlimpseStyle = styled.div`
   min-height: 100vh;
@@ -127,7 +128,8 @@ function DiscoverGlimpse() {
   const [activeEmoji, setActiveEmoji] = useState("");
   const [isCopied, setCopied] = useState(false);
 
-  const handleEmojiCopy = () => {
+  const handleEmojiCopy = (string) => {
+    copy(string.icon);
     setCopied(true);
 
     setTimeout(() => {
@@ -156,6 +158,18 @@ function DiscoverGlimpse() {
           From solid colors to gradients.
           <br />
           Get them as SVG, PNG, OR JPG.
+          <br />
+          <p
+            style={{
+              fontSize: "80%",
+              fontWeight: "normal",
+              color: "rgba(97,90,33,0.78)",
+            }}
+          >
+            Get gradient and radial gradient icons on
+            <LinkDefault href="#download">Figma</LinkDefault> or
+            <Link to="/download">Download𐑼</Link> them.
+          </p>
         </Header>
       </Header>
       <EmojisGrid>
@@ -170,7 +184,7 @@ function DiscoverGlimpse() {
         visible={overlayOpen}
         isCopied={isCopied}
         emoji={activeEmoji}
-        handleEmojiCopy={handleEmojiCopy}
+        handleEmojiCopy={() => handleEmojiCopy(activeEmoji)}
         onClose={() => setOverlayOpen(false)}
       />
       <Button secondary>

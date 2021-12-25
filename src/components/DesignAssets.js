@@ -83,7 +83,7 @@ const DesignAssetsStyle = styled.div`
 
 const DesignAssets = () => {
     return (
-      <DesignAssetsStyle>
+      <DesignAssetsStyle id="download">
         <h1>Download our Assets</h1>
         <p>Download icons from Figma or as PNG, SVG, JPG.</p>
         <div>
