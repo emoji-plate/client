@@ -3,6 +3,3 @@ Emoji plate is simple micro-service to help people get emojis that they cannot g
 
 # Design
 ![Design Image](https://github.com/haneenmahd/emoji-plate/blob/master/docs/images/Design.png)
-
-# Current Status of Developement
-![Current Status Image](https://github.com/haneenmahd/emoji-plate/blob/master/docs/images/CurrentStatus.png)
