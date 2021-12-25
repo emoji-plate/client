@@ -16,6 +16,17 @@ import Discover from './pages/Discover';
 import Documentation from './pages/Documentation';
 import Download from './pages/Download';
 
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <Outlet />
+        <Footer />
+      </div>
+    );
+  }
+}
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
@@ -34,12 +45,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 );
-
-function App() {
-  return (
-    <div>
-      <Outlet />
-      <Footer />
-    </div>
-  );
-}

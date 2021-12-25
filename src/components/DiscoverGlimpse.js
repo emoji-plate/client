@@ -153,7 +153,7 @@ function DiscoverGlimpse() {
           Discover your favourite emojis here!
         </Header>
         <Header fontSize={FONT_SIZES.midSmall}>
-          Find emojis from over {emojiDB.length} emojis.
+          Find emojis from over {emojiDB.length} emojis and more on the way...
           <br />
           From solid colors to gradients.
           <br />
