@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 
 const ButtonPrimary = css`
   min-width: 236px;
-  min-height: 67px;
+  min-height: 47px;
   font-size: 100%;
 
   background: linear-gradient(180.52deg, #fffce3 0.45%, #e6db7f 300.35%);

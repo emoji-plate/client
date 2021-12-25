@@ -60,6 +60,12 @@ const DownloadStyle = styled.div`
     margin: 20px 0;
   }
 
+  .actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
   a#download-link {
     max-width: 100%;
     min-height: 47px;
