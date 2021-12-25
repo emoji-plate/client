@@ -3,32 +3,49 @@ import styled from "styled-components";
 // components
 import { FONT_SIZES } from "../constants";
 import Header from "../styles/Header";
+
+// json import
+import emojiDB from "../data/db.json";
+import { useState } from "react";
 import Button from "../styles/Button";
 import Overlay from "../styles/Overlay";
 import { Link } from "react-router-dom";
 
-// json import
-import emojiDB from "../data/db.json";
-import { useState } from "react/cjs/react.development";
-
-const DiscoverStyle = styled.div`
-  min-height: 100%;
+const DiscoverGlimpseStyle = styled.div`
+  min-height: 100vh;
   max-width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-
+  margin-top: 4%;
   padding: 20px 15px;
   padding-bottom: 50px;
+  z-index: 100;
 
   header {
     padding: 20px;
   }
 
-  @media screen and (max-width: 600px) {
-    header {
-      font-size 250%;
+  .search-input {
+    height: 40px;
+    width: 80vw;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background: #69612338;
+    padding: 5px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    transition: 0.3s;
+
+    ::placeholder {
+      color: #3f3a15;
+      font-weight: normal;
+    }
+
+    :focus {
+      box-shadow: 0 0 0 4px #686123;
     }
   }
 `;
@@ -44,9 +61,9 @@ const EmojisGrid = styled.div`
 const EmojiCard = styled.div`
   height: 150px;
   width: 150px;
-  margin: 2% 0;
   border-radius: 20px;
   padding: 12px 10px;
+  margin: 2%;
   box-shadow: 4px 8px 20px 0 #68612350;
   background: #ffffff50;
   border: 1px solid #686123;
@@ -55,6 +72,7 @@ const EmojiCard = styled.div`
   align-items: center;
   flex-direction: column;
   justify-content: space-around;
+  cursor: pointer;
 
   h1 {
     color: #3f3a15;
@@ -65,6 +83,7 @@ const EmojiCard = styled.div`
   @media screen and (max-width: 600px) {
     height: 130px;
     width: 130px;
+    margin: 2% 0;
   }
 `;
 
@@ -107,10 +126,10 @@ function DiscoverGlimpse() {
   const cardClickHandler = (emoji) => {
     setOverlayOpen(true);
     setActiveEmoji(emoji);
-  }
+  };
 
   return (
-    <DiscoverStyle>
+    <DiscoverGlimpseStyle>
       <Header
         className="main-header"
         primary={true}
@@ -136,7 +155,7 @@ function DiscoverGlimpse() {
       <Button secondary>
         <Link to="/discover">Find More ►</Link>
       </Button>
-    </DiscoverStyle>
+    </DiscoverGlimpseStyle>
   );
 }
 
