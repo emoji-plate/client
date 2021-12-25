@@ -24,7 +24,7 @@ const DiscoverStyle = styled.div`
   z-index: 100;
 
   header {
-    padding: 20px;
+    padding: 10px 20px;
   }
 
   .search-input {
@@ -156,12 +156,13 @@ function Discover() {
       <Button secondary>
         <Link to="/">☉ Get Back Home</Link>
       </Button>
-      <Header
-        className="main-header"
-        primary={true}
-        fontSize={FONT_SIZES.large}
-      >
-        Discover your favourite emojis here!
+      <Header>
+        <Header primary={true} fontSize={FONT_SIZES.large}>
+          Discover your favourite emojis here!
+        </Header>
+        <Header fontSize={FONT_SIZES.midSmall}>
+          Find emojis from over {emojis.length} emojis.
+        </Header>
       </Header>
       <input
         placeholder="Search for emoji"
