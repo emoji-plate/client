@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import Button from "../styles/Button";
@@ -10,7 +10,6 @@ import openUrl from "../util/openURL";
 import DownloadablePngZipFile from "../icons-data/png/emoji-plate-solid-icons.zip";
 import DownloadableSvgZipFile from "../icons-data/svg/emoji-plate-solid-icons.zip";
 import DownloadableJpgZipFile from "../icons-data/jpg/emoji-plate-solid-icons.zip";
-import { useState } from "react/cjs/react.development";
 
 const DownloadStyle = styled.div`
   min-height: 100vh;
