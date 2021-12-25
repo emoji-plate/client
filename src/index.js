@@ -14,6 +14,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Discover from './pages/Discover';
 import Documentation from './pages/Documentation';
+import Download from './pages/Download';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -26,6 +27,7 @@ ReactDOM.render(
           />
           <Route path="/discover" element={<Discover />} />
           <Route path="/documentation" element={<Documentation />} />
+          <Route path="/download" element={<Download />} />
         </Route>
       </Routes>
     </BrowserRouter>

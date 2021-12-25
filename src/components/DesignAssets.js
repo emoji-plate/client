@@ -5,6 +5,7 @@ import Button from "../styles/Button";
 import openUrl from "../util/openURL";
 
 import EmojiPlateThumbnail from "../assets/png/emoji-plate-thumbnail.png";
+import { Link } from "react-router-dom";
 
 const RotationEffect = keyframes`
     0% {
@@ -50,6 +51,17 @@ const DesignAssetsStyle = styled.div`
 
     button {
       margin: 0 8px;
+      font-weight: bold;
+
+      a {
+          margin: 0;
+          padding: 0;
+      }
+    }
+
+    .btn-figma-link {
+        font-weight: 600;
+        font-size: 120%;
     }
   }
 
@@ -59,7 +71,8 @@ const DesignAssetsStyle = styled.div`
     margin-top: 50px;
     -webkit-box-reflect: below 0px
       linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
-      animation: ${RotationEffect} ease-in-out 3s infinite;
+      animation: ${RotationEffect} ease-in-out 3s;
+      animation-delay: 2s;
 
     @media screen and (max-width: 600px) {
         height: 30%;
@@ -73,8 +86,11 @@ const DesignAssets = () => {
         <h1>Download our Assets</h1>
         <p>Download icons from Figma or as PNG, SVG, JPG.</p>
         <div>
-          <Button>Download 𐑼</Button>
+          <Button>
+            <Link to="/download">Download 𐑼</Link>
+          </Button>
           <Button
+            className="btn-figma-link"
             secondary
             onClick={() =>
               openUrl(
@@ -85,7 +101,11 @@ const DesignAssets = () => {
             View File on Figma ✐
           </Button>
         </div>
-        <img src={EmojiPlateThumbnail} alt="Emoji Plate Icons Figma File on Figma Community Thumbnail" />
+        <img
+          lazy="true"
+          src={EmojiPlateThumbnail}
+          alt="Emoji Plate Icons Figma File on Figma Community Thumbnail"
+        />
       </DesignAssetsStyle>
     );
 }

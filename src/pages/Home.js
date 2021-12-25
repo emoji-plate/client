@@ -10,12 +10,13 @@ import Overlay from "../styles/Overlay";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Discover from "../components/DiscoverGlimpse";
+import DesignAssets from "../components/DesignAssets";
+import Developer from "../components/Developer";
 
 import PlateIllustration from "../assets/PlateIllustration";
 
 // json import
 import emojiDB from "../data/db.json";
-import DesignAssets from "../components/DesignAssets";
 
 const AppStyle = styled.div`
   min-height: 100vh;
@@ -132,6 +133,7 @@ function Home() {
       <Main />
       <Discover />
       <DesignAssets />
+      <Developer />
     </div>
   );
 }
