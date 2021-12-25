@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
 // components
 import { FONT_SIZES } from "../constants";
