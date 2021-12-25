@@ -14,7 +14,6 @@ const LinkContainer = () => {
   return (
     <LinkContainerStyle>
       <Link about="_blank" href="https://github.com/haneenmahd/emoji-plate#readme">Documentation</Link>
-      <Link about="_blank" href="https://github.com/haneenmahd/emoji-plate#api">API</Link>
       <Link about="_blank" href="https://github.com/haneenmahd/emoji-plate#release">v1.0.0</Link>
     </LinkContainerStyle>
   );

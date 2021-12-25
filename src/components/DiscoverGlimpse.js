@@ -153,7 +153,7 @@ function DiscoverGlimpse() {
         <Header fontSize={FONT_SIZES.midSmall}>
           Find emojis from over {emojiDB.length} emojis.
           <br />
-          From solid colors to <ColorfulText>gradients</ColorfulText>.
+          From solid colors to gradients.
           <br />
           Get them as SVG, PNG, OR JPG.
         </Header>
