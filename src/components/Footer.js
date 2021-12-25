@@ -48,6 +48,14 @@ const FooterStyle = styled.footer`
       font-size: 20px;
       margin: 10px 5px;
       width: 40%;
+
+      b {
+        font-size: 16px;
+      }
+
+      a {
+        margin: 0;
+      }
     }
   }
 
@@ -95,6 +103,14 @@ const Footer = () => {
           <br />
           <br />
           <i>Give us a star ⭐️ on GitHub</i>
+          <br />
+          <br />
+          <b>
+            Created with ❤️ by{" "}
+            <a about="_blank" href="https://github.com/haneenmahd">
+              @haneenmahd
+            </a>
+          </b>
         </p>
       </div>
     </FooterStyle>
