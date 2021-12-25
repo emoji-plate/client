@@ -2,6 +2,8 @@ import React from "react";
 import Link from "../styles/Link";
 import styled from "styled-components";
 
+import Logo from "../assets/png/logo.png";
+
 const FooterStyle = styled.footer`
   max-width: 100vw;
   height: 100%;
@@ -11,6 +13,11 @@ const FooterStyle = styled.footer`
 
   background: linear-gradient(180.52deg, #fcf6c3 0.45%, #e6db7f 300.35%);
   box-shadow: 4px 8px 8px rgba(56, 56, 56, 0.07);
+
+  img {
+    margin: 0;
+    margin-bottom: 20px;
+  }
 
   .links {
     display: flex;
@@ -47,6 +54,7 @@ const FooterStyle = styled.footer`
 const Footer = () => {
   return (
     <FooterStyle>
+      <img height={100} src={Logo} alt="Emoji Plate Logo for Illustration purposes. It is shown right here on the footer" />
       <div className="links">
         <h5>Links ↖︎</h5>
         <Link href="https://github.com/haneenmahd/emoji-plate">GitHub</Link>

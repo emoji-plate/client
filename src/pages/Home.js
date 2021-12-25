@@ -15,6 +15,7 @@ import PlateIllustration from "../assets/PlateIllustration";
 
 // json import
 import emojiDB from "../data/db.json";
+import DesignAssets from "../components/DesignAssets";
 
 const AppStyle = styled.div`
   min-height: 100vh;
@@ -130,6 +131,7 @@ function Home() {
       </span>
       <Main />
       <Discover />
+      <DesignAssets />
     </div>
   );
 }
