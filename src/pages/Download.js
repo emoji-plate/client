@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 import Button from "../styles/Button";
 import { Link } from "react-router-dom";
+import LinkDefault from "../styles/Link";
 
 import Overlay from "../styles/Overlay";
 import openUrl from "../util/openURL";
@@ -11,7 +12,11 @@ import DownloadablePngZipFile from "../icons-data/png/emoji-plate-solid-icons.zi
 import DownloadableSvgZipFile from "../icons-data/svg/emoji-plate-solid-icons.zip";
 import DownloadableJpgZipFile from "../icons-data/jpg/emoji-plate-solid-icons.zip";
 
+import DownloadableLinearGradientFile from "../icons-data/raw/emoji-plate-gradient.zip";
+import DownloadableRadialGradientFile from "../icons-data/raw/emoji-plate-radial.zip";
+
 const DownloadStyle = styled.div`
+  position: relative;
   min-height: 100vh;
   max-width: 100vw;
   display: flex;
@@ -66,7 +71,7 @@ const DownloadStyle = styled.div`
     align-items: center;
   }
 
-  a#download-link {
+  a.with-overlay {
     max-width: 100%;
     min-height: 47px;
     font-size: 100%;
@@ -89,6 +94,23 @@ const DownloadStyle = styled.div`
 
     padding-bottom: 20px;
   }
+`;
+
+const GrowAndShrink = keyframes`
+  from {
+      height: ${Math.random() * 100}px;
+  }
+`;
+
+const Abstract = styled.span`
+  position: absolute;
+  bottom: 0;
+  left: ${(p) => p.left}%;
+  height: ${(p) => p.height}px;
+  width: 10px;
+  border-radius: 3px 3px 0 0;
+  background: rgba(45, 42, 18, ${(p) => p.rgbOpacity});
+  animation: ${GrowAndShrink} 5s ease-in-out;
 `;
 
 const Download = () => {
@@ -119,6 +141,67 @@ const Download = () => {
             Visit Figma Design File ✐
           </Button>
         </div>
+        <LinkDefault
+          className="with-overlay"
+          href={DownloadableRadialGradientFile}
+          download
+        >
+          Download Radial Gradient Icons ◉
+        </LinkDefault>
+        <LinkDefault
+          className="with-overlay"
+          href={DownloadableLinearGradientFile}
+          download
+        >
+          Download Linear Gradient Icons ⦿
+        </LinkDefault>
+
+        {/** Abtract Elements */}
+        <Abstract
+          height={Math.random() * 100}
+          left={Math.random() * 99}
+          rgbOpacity={Math.random() * 1}
+        />
+        <Abstract
+          height={Math.random() * 100}
+          left={Math.random() * 99}
+          rgbOpacity={Math.random() * 1}
+        />
+        <Abstract
+          height={Math.random() * 100}
+          left={Math.random() * 99}
+          rgbOpacity={Math.random() * 1}
+        />
+        <Abstract
+          height={Math.random() * 100}
+          left={Math.random() * 99}
+          rgbOpacity={Math.random() * 1}
+        />
+        <Abstract
+          height={Math.random() * 100}
+          left={Math.random() * 99}
+          rgbOpacity={Math.random() * 1}
+        />
+        <Abstract
+          height={Math.random() * 100}
+          left={Math.random() * 99}
+          rgbOpacity={Math.random() * 1}
+        />
+        <Abstract
+          height={Math.random() * 100}
+          left={Math.random() * 99}
+          rgbOpacity={Math.random() * 1}
+        />
+        <Abstract
+          height={Math.random() * 100}
+          left={Math.random() * 99}
+          rgbOpacity={Math.random() * 1}
+        />
+        <Abstract
+          height={Math.random() * 100}
+          left={Math.random() * 99}
+          rgbOpacity={Math.random() * 1}
+        />
       </header>
 
       {/** Overlay to choose download type */}

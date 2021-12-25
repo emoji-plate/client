@@ -86,7 +86,7 @@ const Footer = () => {
         <Link href="https://github.com/haneenmahd/emoji-plate/issues/new">
           Open a issue＋
         </Link>
-        <Link href="https://github.com/haneenmahd/emoji-plate/pulls">
+        <Link href="https://github.com/haneenmahd/emoji-plate/pulls/new">
           Suggest an idea💡
         </Link>
         <Link href="https://github.com/haneenmahd/emoji-plate/blob/master/CONTRIBUTING.md">
