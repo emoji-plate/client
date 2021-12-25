@@ -88,7 +88,7 @@ const Abstract = styled.span`
   width: 10px;
   border-radius: 3px 3px 0 0;
   background: rgba(45, 42, 18, ${p => p.rgbOpacity});
-  animation: ${GrowAndShrink} 2s ease-in-out;
+  animation: ${GrowAndShrink} 5s ease-in-out;
 `;
 
 const Developer = () => {

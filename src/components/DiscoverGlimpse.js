@@ -10,6 +10,7 @@ import { useState } from "react";
 import Button from "../styles/Button";
 import Overlay from "../styles/Overlay";
 import { Link } from "react-router-dom";
+import ColorfulText from "../styles/ColorfulText";
 
 const DiscoverGlimpseStyle = styled.div`
   min-height: 100vh;
@@ -24,7 +25,18 @@ const DiscoverGlimpseStyle = styled.div`
   z-index: 100;
 
   header {
-    padding: 20px;
+    .primary-header {
+      margin: 2px 0;
+      @media screen and (max-width: 600px) {
+        font-size: 250%;
+      }
+    }
+
+    padding: 10px 20px;
+
+    header {
+      margin: 5px 0;
+    }
   }
 
   .search-input {
@@ -130,12 +142,21 @@ function DiscoverGlimpse() {
 
   return (
     <DiscoverGlimpseStyle>
-      <Header
-        className="main-header"
-        primary={true}
-        fontSize={FONT_SIZES.large}
-      >
-        Discover your favourite emojis here!
+      <Header>
+        <Header
+          className="primary-header"
+          primary={true}
+          fontSize={FONT_SIZES.large}
+        >
+          Discover your favourite emojis here!
+        </Header>
+        <Header fontSize={FONT_SIZES.midSmall}>
+          Find emojis from over {emojiDB.length} emojis.
+          <br />
+          From solid colors to <ColorfulText>gradients</ColorfulText>.
+          <br />
+          Get them as SVG, PNG, OR JPG.
+        </Header>
       </Header>
       <EmojisGrid>
         {emojis.map((emoji, index) => (

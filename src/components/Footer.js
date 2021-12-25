@@ -30,8 +30,7 @@ const FooterStyle = styled.footer`
     }
 
     a {
-      width: fit-content;
-      margin: 4px;
+      margin: 4px 0;
     }
 
     a:hover {
