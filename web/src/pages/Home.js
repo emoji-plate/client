@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import Discover from "../components/DiscoverGlimpse";
 import DesignAssets from "../components/DesignAssets";
 import Developer from "../components/Developer";
+import LinkContainer from "../components/LinkContainer";
 
 import PlateIllustration from "../assets/PlateIllustration";
 
@@ -93,7 +94,7 @@ function Main() {
           githubLinkClick={openGitHubRepo}
           getMeEmojiHandler={handleGetMeEmojiClick}
         />
-        {/**<LinkContainer /> */}
+        <LinkContainer />
         <Button>
           <Link to="/discover">Discover Emojis ⚉</Link>
         </Button>

@@ -5,9 +5,10 @@ const LinkDefault = css`
   font-weight: normal;
   font-size: 20px;
   line-height: 24px;
-  text-decoration-line: underline;
-
+  text-decoration-line: none;
+  padding: 8px;
   color: #686123;
+  border-radius: 25px;
 
   /* Inside Auto Layout */
 
