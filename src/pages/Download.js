@@ -111,7 +111,7 @@ const Download = () => {
               )
             }
           >
-            Visit Figma Design File
+            Visit Figma Design File ✐
           </Button>
         </div>
       </header>
