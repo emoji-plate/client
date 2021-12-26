@@ -8,10 +8,8 @@ const ButtonContainerStyle = styled.div`
   align-items: center;
   padding: 18px;
   margin: 18px 0;
-
   max-width: 100%;
   min-height: 80px;
-
   background: #dfdbb9;
   border-radius: 25px;
 
@@ -21,7 +19,7 @@ const ButtonContainerStyle = styled.div`
 
   @media screen and (max-width: 600px) {
     width: 80vw;
-    
+
     button {
       margin: 0 8px;
     }

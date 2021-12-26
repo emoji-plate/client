@@ -31,7 +31,7 @@ const Card = styled.div`
 
   &:hover {
     background: #686123;
-    h1 {
+    h1, h2, h3, h4, h5, h6, p, span, div {
         color: #fff;
     }
   }
