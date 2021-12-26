@@ -17,11 +17,23 @@ const Card = styled.div`
   flex-direction: column;
   justify-content: space-around;
   cursor: pointer;
+  transition: 0.3s;
 
   h1 {
     color: #3f3a15;
-    font-size: 400%;
+    font-size: 300%;
     margin: 0;
+  }
+
+  @media screen and (min-width: 600px) {
+    width: 500px;
+  }
+
+  &:hover {
+    background: #686123;
+    h1 {
+        color: #fff;
+    }
   }
 `;
 
