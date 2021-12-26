@@ -13,6 +13,7 @@ import Discover from "../components/DiscoverGlimpse";
 import DesignAssets from "../components/DesignAssets";
 import Developer from "../components/Developer";
 import LinkContainer from "../components/LinkContainer";
+import Card from "../styles/Card";
 
 import PlateIllustration from "../assets/PlateIllustration";
 
@@ -29,14 +30,26 @@ const AppStyle = styled.div`
 
   .main-container {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
       justify-content: space-around;
       height: 100%:
       width: 100vw;
       text-align: center;
       margin-top: 30px;
+      padding: 100px;
       z-index: 4;
+
+      @media screen and (max-width: 600px) {
+        flex-direction: column;
+      }
+
+      .intro {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+      }
 
       .main-header {
           padding: 0 3%;
@@ -80,24 +93,29 @@ function Main() {
   return (
     <AppStyle>
       <main className="main-container">
-        <Header
-          className="main-header"
-          primary={true}
-          fontSize={FONT_SIZES.large}
-        >
-          Best emojis in the town.
-        </Header>
-        <Header className="secondary-header" fontSize={FONT_SIZES.midLarge}>
-          Get emojis that you don’t get from anywhere else from here.
-        </Header>
-        <ButtonContainer
-          githubLinkClick={openGitHubRepo}
-          getMeEmojiHandler={handleGetMeEmojiClick}
-        />
-        <LinkContainer />
-        <Button>
-          <Link to="/discover">Discover Emojis ⚉</Link>
-        </Button>
+        <div className="intro">
+          <Header
+            className="main-header"
+            primary={true}
+            fontSize={FONT_SIZES.large}
+          >
+            Best emojis in the town.
+          </Header>
+          <Header className="secondary-header" fontSize={FONT_SIZES.midLarge}>
+            Get emojis that you don’t get from anywhere else from here.
+          </Header>
+          <ButtonContainer
+            githubLinkClick={openGitHubRepo}
+            getMeEmojiHandler={handleGetMeEmojiClick}
+          />
+          <LinkContainer />
+          <Button>
+            <Link to="/discover">Discover Emojis ⚉</Link>
+          </Button>
+        </div>
+        <Card>
+          <h1>New card</h1>
+        </Card>
         <Overlay onClose={() => setOverlayOpen(false)} visible={overlayOpen}>
           <h1
             style={{
@@ -106,7 +124,8 @@ function Main() {
               color: "#A9A68E",
               textAlign: "center",
               margin: "0",
-            }}>
+            }}
+          >
             {randomEmoji.icon}
           </h1>
           <p>{randomEmoji.name}</p>
