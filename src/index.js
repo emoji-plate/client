@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import {
   BrowserRouter,
   Routes,
   Route,
-  Outlet
+  Outlet,
+  useLocation
 } from "react-router-dom";
 import './index.css';
 
@@ -16,15 +17,13 @@ import Discover from './pages/Discover';
 import Documentation from './pages/Documentation';
 import Download from './pages/Download';
 
-class App extends React.Component {
-  render() {
+const App = () => {
     return (
       <div>
         <Outlet />
         <Footer />
       </div>
     );
-  }
 }
 
 ReactDOM.render(

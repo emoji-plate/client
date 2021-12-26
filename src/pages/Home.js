@@ -19,6 +19,7 @@ import PlateIllustration from "../assets/PlateIllustration";
 
 // json import
 import emojiDB from "../data/db.json";
+import ActionSheet from "../styles/ActionSheet";
 
 const AppStyle = styled.div`
   min-height: 100vh;
@@ -37,11 +38,16 @@ const AppStyle = styled.div`
       width: 100vw;
       text-align: center;
       margin-top: 30px;
-      padding: 100px;
+      padding-top: 100px 20px;
       z-index: 4;
 
-      @media screen and (max-width: 600px) {
+      @media screen and (max-width: 800px) {
         flex-direction: column;
+      }
+
+      .action-sheet {
+        padding: 6%;
+        padding-top: 5%;
       }
 
       .intro {
@@ -87,7 +93,7 @@ function Main() {
   }
 
   const openGitHubRepo = () => {
-    window.open("https://github.com/haneenmahd/emoji-plate");
+    window.open("https://github.com/emoji-plate/client");
   }
 
   return (
@@ -114,8 +120,14 @@ function Main() {
           </Button>
         </div>
         <Card>
-          <h1>New card</h1>
+          <h2>☉ New card</h2>
         </Card>
+        <ActionSheet className="action-sheet">
+          <h1>Create or upload your new Icon or Symbol ☉</h1>
+          <p>
+            Upload your icon file with supported extension *.svg, *.png, *.jpg
+          </p>
+        </ActionSheet>
         <Overlay onClose={() => setOverlayOpen(false)} visible={overlayOpen}>
           <h1
             style={{
