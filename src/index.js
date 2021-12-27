@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import {
   BrowserRouter,
   Routes,
   Route,
-  Outlet,
-  useLocation
+  Outlet
 } from "react-router-dom";
 import './index.css';
 

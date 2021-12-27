@@ -29,7 +29,7 @@ const SideNavigationSelector = styled.span`
   }
 `;
 
-const Documentation = (props) => {
+const Documentation = () => {
     return (
       <DocumentationStyle>
         <SideNavigationBar>
