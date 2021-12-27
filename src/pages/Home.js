@@ -19,7 +19,7 @@ import PlateIllustration from "../assets/PlateIllustration";
 
 // json import
 import emojiDB from "../data/db.json";
-import ActionSheet from "../styles/ActionSheet";
+import ActionSheet, { CloseButton } from "../styles/ActionSheet";
 
 const AppStyle = styled.div`
   min-height: 100vh;
@@ -43,11 +43,6 @@ const AppStyle = styled.div`
 
       @media screen and (max-width: 800px) {
         flex-direction: column;
-      }
-
-      .action-sheet {
-        padding: 6%;
-        padding-top: 5%;
       }
 
       .intro {
@@ -75,6 +70,7 @@ const AppStyle = styled.div`
 function Main() {
   const [overlayOpen, setOverlayOpen] = useState(false);
   const [emojis] = useState(emojiDB);
+  const [sheetVisible, setSheetVisibility] = useState(false);
 
   const [isCopied, setCopied] = useState(false);
 
@@ -98,36 +94,44 @@ function Main() {
 
   return (
     <AppStyle>
+
       <main className="main-container">
         <div className="intro">
           <Header
             className="main-header"
             primary={true}
-            fontSize={FONT_SIZES.large}
-          >
+            fontSize={FONT_SIZES.large}>
             Best emojis in the town.
           </Header>
+
           <Header className="secondary-header" fontSize={FONT_SIZES.midLarge}>
             Get emojis that you don’t get from anywhere else from here.
           </Header>
+
           <ButtonContainer
             githubLinkClick={openGitHubRepo}
             getMeEmojiHandler={handleGetMeEmojiClick}
           />
+
           <LinkContainer />
+
           <Button>
             <Link to="/discover">Discover Emojis ⚉</Link>
           </Button>
         </div>
-        <Card>
+
+        <Card onClick={() => setSheetVisibility(true)}>
           <h2>☉ New card</h2>
         </Card>
-        <ActionSheet className="action-sheet">
+
+        <ActionSheet visible={sheetVisible} className="action-sheet">
+          <CloseButton onClick={() => setSheetVisibility(false)}>◉</CloseButton>
           <h1>Create or upload your new Icon or Symbol ☉</h1>
           <p>
             Upload your icon file with supported extension *.svg, *.png, *.jpg
           </p>
         </ActionSheet>
+
         <Overlay onClose={() => setOverlayOpen(false)} visible={overlayOpen}>
           <h1
             style={{
@@ -140,10 +144,13 @@ function Main() {
           >
             {randomEmoji.icon}
           </h1>
+
           <p>{randomEmoji.name}</p>
+
           <Button onClick={handleEmojiCopy}>
             {isCopied ? <b>Copied</b> : "Copy"}
           </Button>
+
         </Overlay>
       </main>
     </AppStyle>
